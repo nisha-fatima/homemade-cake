@@ -34,7 +34,7 @@ html {
 .header {
     width: 100%;
     height: 100vh;
-    background: url(./img/home-img.png);
+    background: url(./img/home-img.PNG);
     background-repeat: no-repeat;
     background-size: cover;
 }

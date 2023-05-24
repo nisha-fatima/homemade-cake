@@ -1,89 +1,139 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Welcome to Firebase Hosting</title>
+<html lang="en">
 
-    <!-- update the version number as needed -->
-    <script defer src="/__/firebase/9.22.0/firebase-app-compat.js"></script>
-    <!-- include only the Firebase features as you need -->
-    <script defer src="/__/firebase/9.22.0/firebase-auth-compat.js"></script>
-    <script defer src="/__/firebase/9.22.0/firebase-database-compat.js"></script>
-    <script defer src="/__/firebase/9.22.0/firebase-firestore-compat.js"></script>
-    <script defer src="/__/firebase/9.22.0/firebase-functions-compat.js"></script>
-    <script defer src="/__/firebase/9.22.0/firebase-messaging-compat.js"></script>
-    <script defer src="/__/firebase/9.22.0/firebase-storage-compat.js"></script>
-    <script defer src="/__/firebase/9.22.0/firebase-analytics-compat.js"></script>
-    <script defer src="/__/firebase/9.22.0/firebase-remote-config-compat.js"></script>
-    <script defer src="/__/firebase/9.22.0/firebase-performance-compat.js"></script>
-    <!-- 
-      initialize the SDK after all desired features are loaded, set useEmulator to false
-      to avoid connecting the SDK to running emulators.
-    -->
-    <script defer src="/__/firebase/init.js?useEmulator=true"></script>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Handmade Cake</title>
+    <!-- Custom css -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Font Awesome Cdn -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" />
+</head>
 
-    <style media="screen">
-      body { background: #ECEFF1; color: rgba(0,0,0,0.87); font-family: Roboto, Helvetica, Arial, sans-serif; margin: 0; padding: 0; }
-      #message { background: white; max-width: 360px; margin: 100px auto 16px; padding: 32px 24px; border-radius: 3px; }
-      #message h2 { color: #ffa100; font-weight: bold; font-size: 16px; margin: 0 0 8px; }
-      #message h1 { font-size: 22px; font-weight: 300; color: rgba(0,0,0,0.6); margin: 0 0 16px;}
-      #message p { line-height: 140%; margin: 16px 0 24px; font-size: 14px; }
-      #message a { display: block; text-align: center; background: #039be5; text-transform: uppercase; text-decoration: none; color: white; padding: 16px; border-radius: 4px; }
-      #message, #message a { box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24); }
-      #load { color: rgba(0,0,0,0.4); text-align: center; font-size: 13px; }
-      @media (max-width: 600px) {
-        body, #message { margin-top: 0; background: white; box-shadow: none; }
-        body { border-top: 16px solid #ffa100; }
-      }
-    </style>
-  </head>
-  <body>
-    <div id="message">
-      <h2>Welcome</h2>
-      <h1>Firebase Hosting Setup Complete</h1>
-      <p>You're seeing this because you've successfully setup Firebase Hosting. Now it's time to go build something extraordinary!</p>
-      <a target="_blank" href="https://firebase.google.com/docs/hosting/">Open Hosting Documentation</a>
+<body>
+    <!-- Header Section -->
+    <div class="header" id="home">
+        <nav id="navbar">
+            <a href="#home" class="logo">LOGO <span>.</span></a>
+            <div class="links" id="nav">
+                <a href="#home">Home</a>
+                <a href="#about">About</a>
+                <a href="#service">Services</a>
+                <a href="#contact">Contact</a>
+            </div>
+            <div class="fas fa-bars" id="menu-btn" onclick="openmenu()"></div>
+            <div class="fa-solid fa-xmark" id="close" onclick="closemenu()"></div>
+        </nav>
+        <div class="content">
+            <h3>The right dessert for any occasion</h3>
+            <h1>Homemade Cakes</h1>
+            <button class="btn">Buy Now</button>
+        </div>
     </div>
-    <p id="load">Firebase SDK Loading&hellip;</p>
+    <!-- Header Section End -->
 
-    <script>
-      document.addEventListener('DOMContentLoaded', function() {
-        const loadEl = document.querySelector('#load');
-        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
-        // // The Firebase SDK is initialized and available here!
-        //
-        // firebase.auth().onAuthStateChanged(user => { });
-        // firebase.database().ref('/path/to/ref').on('value', snapshot => { });
-        // firebase.firestore().doc('/foo/bar').get().then(() => { });
-        // firebase.functions().httpsCallable('yourFunction')().then(() => { });
-        // firebase.messaging().requestPermission().then(() => { });
-        // firebase.storage().ref('/path/to/ref').getDownloadURL().then(() => { });
-        // firebase.analytics(); // call to activate
-        // firebase.analytics().logEvent('tutorial_completed');
-        // firebase.performance(); // call to activate
-        //
-        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="image">
 
-        try {
-          let app = firebase.app();
-          let features = [
-            'auth', 
-            'database', 
-            'firestore',
-            'functions',
-            'messaging', 
-            'storage', 
-            'analytics', 
-            'remoteConfig',
-            'performance',
-          ].filter(feature => typeof app[feature] === 'function');
-          loadEl.textContent = `Firebase SDK loaded with ${features.join(', ')}`;
-        } catch (e) {
-          console.error(e);
-          loadEl.textContent = 'Error loading the Firebase SDK, check the console.';
-        }
-      });
-    </script>
-  </body>
+            </div>
+            <div class="about-content">
+                <h1>What makes our cake special?</h1>
+                <h3>You've never tasted a cake like this</h3>
+                <p>It features fresh summer berries and an airy vanilla cake, which are delicious in themselves. But the
+                    frosting is what makes this cake really stand out. It’s a cloud-like combo of sweetened mascarpone,
+                    cream cheese and whipped cream—not like any frosting you’ve had before.</p>
+                <button class="btn" style="color: black;">About Us</button>
+
+            </div>
+        </div>
+    </section>
+    <!-- About Section End-->
+
+    <!-- Service Section -->
+    <section class="service" id="service">
+        <h1 class="heading">Our <span>Services</span></h1>
+        <p class="heading-description">We deliver our products free door to door 24x7 = 360</p>
+        <div class="container">
+            <div class="service-box">
+                <div class="service-img">
+                    <img src="img/menu-1.jpg" alt="">
+                </div>
+                <div class="service-content">
+                    <h3>Caramel Crunch Cake</h3>
+                    <p>A light and delicious layer cake made with toffee caramel, almonds and whipped cream.
+                    </p>
+                </div>
+            </div>
+            <div class="service-box">
+                <div class="service-img">
+                    <img src="img/menu-2.jpg" alt="">
+                </div>
+                <div class="service-content">
+                    <h3>Red Velvet Cake</h3>
+                    <p>Our red velvet sponge is covered in smooth cream cheese frosting making it a perfect treat for
+                        anyone and everyone. Remember, cake is for life, not just birthdays!</p>
+                </div>
+            </div>
+            <div class="service-box">
+                <div class="service-img">
+                    <img src="img/menu-3.jpg" alt="">
+                </div>
+                <div class="service-content">
+                    <h3>Triple-Layer Chocolate Cake</h3>
+                    <p>A cake made with three types of premium chocolate is the ultimate treat for a chocoholic, there’s
+                        dark, milk, and white chocolate in layers of the cake. Are you already drooling while reading?
+                        Order now and indulge yourself in deliciousness!</p>
+                </div>
+            </div>
+            <div class="service-box">
+                <div class="service-img">
+                    <img src="img/menu-6.jpg" alt="">
+                </div>
+                <div class="service-content">
+                    <h3>Assorted French Macarons</h3>
+                    <p>Handmade by our Chocolatier Lal Majid, our French Macarons are available in a wide variety of unique flavors and fillings.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Service Section End -->
+
+    <!-- Footer Section -->
+    <section class="footer" id="contact">
+
+
+        <div class="container">
+            <div class="footer-box">
+                <h3>about us </h3>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Non laborum nisi id amet sit? Cum, rem?
+                    Nam, in at. Officiis?</p>
+                <p>Copyrights &copy; 2023 All rights reserved By <a href="">Nisha Fatima</a></p>
+
+            </div>
+            <div class="footer-box">
+                <h3>Newsletter</h3>
+                <p>Subscribe for Latest Updates and Trends</p>
+                <form>
+                    <input type="email" name="email" placeholder="admin@gmail.com">
+                    <button type="submit"><i class="fa-solid fa-right-long"></i></button>
+                </form>
+            </div>
+            <div class="footer-box">
+                <h3>Follow Us</h3>
+                <p>Connect With Us On:</p>
+                <div>
+                    <a href="#"><i style="padding-top: 10px;" class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#"><i style="padding-top: 10px;" class="fa-brands fa-instagram"></i></a>
+                    <a href="#"><i style="padding-top: 10px;" class="fa-brands fa-twitter"></i></a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <!-- Footer Section End -->
+</body>
+
 </html>
